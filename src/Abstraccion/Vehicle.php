@@ -1,11 +1,18 @@
 <?php
 namespace App\Abstraccion;
 
-class Vehicle{
+/**
+ * el abstract indica que no se puede instanciar
+ * solo se puede heredar
+ * es decir que, solo el hijo puede instanciar
+ */
+abstract class Vehicle{
 
     // especificar el tipo de dato (int, string, array, etc)
-    private int $wheels;
-    private int $velocity = 0;
+    // el metodo protected permite que los hijos puedan acceder
+    
+    protected int $wheels;
+    protected int $velocity = 0;
     private string $color;
     
     /**
@@ -15,16 +22,14 @@ class Vehicle{
     public function __construct(string $color)
     {
         $this->color = $color;
-        $this->wheels = 5;
     }
 
     /**
-     * @return int
+     * @return void
+     * esta será una función obligatoria para todos los vehiculos
+     * y solo se puede usar en caso de ser una función abstracta pq es obligatoria 
      */
-    public function accelerate(int $increase): void
-    {
-        $this->velocity += $increase;
-    }
+    public abstract function accelerate(int $increase): void;
 
     /**
      * @return int

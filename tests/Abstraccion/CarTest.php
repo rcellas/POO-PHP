@@ -17,7 +17,7 @@ class CarTest extends TestCase
         // sut = system under test
         $sut = $car->getWheels();
         //THEN-> Resultado
-        $this->assertEquals(5, $sut);
+        $this->assertEquals(4, $sut);
    }
 
    public function testCarHasColor()
